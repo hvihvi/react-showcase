@@ -13,11 +13,16 @@ const List = () => {
 
   return (
     <ul>
-      {users.filter(user => user.isDev === true).map(user => (
+      {users.filter(doFilter).map(user => (
         <li>{user.name}</li>
       ))}
     </ul>
   );
 };
+
+/**
+ * Extracting functions allows to unit test them in isolation from the component
+ */
+const doFilter = user => user.isDev === true;
 
 export default List;
