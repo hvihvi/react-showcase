@@ -5,11 +5,15 @@ import React from "react";
  * - `map` example combined with JSX
  */
 const List = () => {
-  const users = [{ name: "Robin" }, { name: "Markus" }];
+  const users = [
+    { name: "Jean", isDev: true },
+    { name: "Pierre", isDev: true },
+    { name: "Max", isDev: false }
+  ];
 
   return (
     <ul>
-      {users.map(user => (
+      {users.filter(user => user.isDev === true).map(user => (
         <li>{user.name}</li>
       ))}
     </ul>
