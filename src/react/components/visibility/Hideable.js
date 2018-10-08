@@ -11,4 +11,7 @@ import React from "react";
 const Hideable = props =>
   props.visible && <div>I'm visible if props.visible is true</div>;
 
+const VerboseHideable = props =>
+  props.visible ? <div>I'm visible if props.visible is true</div> : null;
+
 export default Hideable;
