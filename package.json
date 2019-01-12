@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "i18next": "^13.1.2",
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
+    "react-i18next": "^9.0.2",
     "react-intl": "^2.7.2",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
