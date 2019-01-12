@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
+    "react-intl": "^2.7.2",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
     "redux": "^4.0.0"
