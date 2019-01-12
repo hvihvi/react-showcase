@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 
 /**
  * <> </> is a new shortcut for React.Fragment
@@ -9,38 +9,42 @@ import React, {useEffect, useState} from 'react'
  * passing a function avoids concurrent modification issues
  */
 const StatefulFunctionalComponent = () => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
 
-  const onIncrement = () => setCounter(counter => counter + 1)
-  const onDecrement = () => setCounter(counter => counter - 1)
+  const onIncrement = () => setCounter(counter => counter + 1);
+  const onDecrement = () => setCounter(counter => counter - 1);
 
-  return <>
-    Clicked: {counter} times
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
-  </>
-}
+  return (
+    <>
+      Clicked: {counter} times
+      <button onClick={onIncrement}>+</button>
+      <button onClick={onDecrement}>-</button>
+    </>
+  );
+};
 
 const StatefulFunctionalComponentRefactored = () => {
-  const [counter, onIncrement, onDecrement] = useCounter(0)
+  const [counter, onIncrement, onDecrement] = useCounter(0);
 
-  return <>
-    Clicked: {counter} times
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
-  </>
-}
+  return (
+    <>
+      Clicked: {counter} times
+      <button onClick={onIncrement}>+</button>
+      <button onClick={onDecrement}>-</button>
+    </>
+  );
+};
 
 /**
  * Custom Hook example => reusable in multiple components
  */
-const useCounter = (initialValue) => {
-  const [state, setCounter] = useState(initialValue)
+const useCounter = initialValue => {
+  const [state, setCounter] = useState(initialValue);
 
-  const increment = () => setCounter(counter => counter + 1)
-  const decrement = () => setCounter(counter => counter - 1)
-  return [state, increment, decrement]
-}
+  const increment = () => setCounter(counter => counter + 1);
+  const decrement = () => setCounter(counter => counter - 1);
+  return [state, increment, decrement];
+};
 
 /**
  * `useEffect` example :
@@ -52,16 +56,16 @@ const useCounter = (initialValue) => {
  *  array occured. If previous counter `===` next counter then the effect won't trigger
  */
 const StatefulFunctionalComponentSideEffect = () => {
-  const [counter, onIncrement, onDecrement] = useCounter(0)
-  const [clicks, incrementClicks] = useCounter(0)
+  const [counter, onIncrement, onDecrement] = useCounter(0);
+  const [clicks, incrementClicks] = useCounter(0);
 
-  useEffect(incrementClicks, [counter])
+  useEffect(incrementClicks, [counter]);
 
-
-  return <>
-    Rendered: {clicks} times
-    Clicked: {counter} times
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
-  </>
-}
+  return (
+    <>
+      Rendered: {clicks} times Clicked: {counter} times
+      <button onClick={onIncrement}>+</button>
+      <button onClick={onDecrement}>-</button>
+    </>
+  );
+};
