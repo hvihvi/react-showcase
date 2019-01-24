@@ -41,7 +41,7 @@ it("should display 2 when value is 2", () => {
  * Test values with enzyme shallow
  * Note => shallow doesn't render sub components
  */
-it("should display 2 when value is 2", () => {
+it("should display CounterText", () => {
   // given
   const wrapper = shallow(
     <Counter value={2} onIncrement={() => {}} onDecrement={() => {}} />
@@ -53,16 +53,19 @@ it("should display 2 when value is 2", () => {
 });
 
 /**
- * Example of component callback testing with sinon fake and enzyme mount
- * Shallow only renders the component and mocks subcomponent
- * Mount renders the whole tree
+ * Example of component callback testing with sinon spy and enzyme mount
  */
 it("should call onIncrement when clicking + buton", () => {
   // given
-  var callback = sinon.fake();
+  var callback = sinon.spy();
   const wrapper = mount(
-    <Counter value={2} onIncrement={() => {}} onDecrement={() => {}} />
+    <Counter value={2} onIncrement={callback} onDecrement={() => {}} />
   );
   // when
+  wrapper
+    .find("button")
+    .first()
+    .simulate("click");
   // then
+  expect(callback.calledOnce).toBeTruthy();
 });
