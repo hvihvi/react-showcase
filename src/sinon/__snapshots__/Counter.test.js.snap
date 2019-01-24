@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<p>
+  Clicked: 
+  2
+   times
+  <button
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    -
+  </button>
+</p>
+`;
