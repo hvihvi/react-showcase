@@ -2,9 +2,9 @@
 
 exports[`renders correctly 1`] = `
 <p>
-  Clicked: 
-  2
-   times
+  <b>
+    Clicked: 2 times
+  </b>
   <button
     onClick={[Function]}
   >
